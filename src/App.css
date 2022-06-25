@@ -22,12 +22,7 @@ header {
   text-align: center;
 }
 
-#enter_name {
-  display: none;
-}
-
 #vs {
-  display: none;
   margin-bottom: 15px;
   color: #6600cc;
   font-size: 20px;
