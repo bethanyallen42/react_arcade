@@ -10,8 +10,16 @@ function App() {
   const [numOfPlayersChosen, setNumOfPlayersChosen] = useState(false);
 
   const [playerOne, setPlayerOne] = useState("");
-  const [playerTwo, setPlayerTwo] = useState("");
+  const [playerTwo, setPlayerTwo] = useState("Computer");
   const [nameOfPlayersEntered, setNameOfPlayersEntered] = useState(false);
+
+  const [currentPlayer, setCurrentPlayer] = useState(
+    Math.floor(Math.random() * 2) + 1
+  );
+
+  const [pipArray, setPipArray] = useState([
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  ]);
   // const [gameState, setGameState] = useState({
   //   numOfPlayers: 0,
   //   playerOne: "",
@@ -49,15 +57,29 @@ function App() {
         setPlayerTwo={setPlayerTwo}
         nameOfPlayersEntered={nameOfPlayersEntered}
         setNameOfPlayersEntered={setNameOfPlayersEntered}
+        currentPlayer={currentPlayer}
+        pipArray={pipArray}
+        setPipArray={setPipArray}
       />
       <div className="board_info_1">
-        <p id="player_one_mancala">Player One's mancala</p>
-        <p id="player_one_side" className="side"></p>
+        <p id="player_one_mancala">Player One's Mancala</p>
+        <p id="player_one_side" className="side">
+          Player One's Side
+        </p>
       </div>
-      <Board />
+      <Board
+        pipArray={pipArray}
+        setPipArray={setPipArray}
+        playerOne={playerOne}
+        playerTwo={playerTwo}
+        currentPlayer={currentPlayer}
+        setCurrentPlayer={setCurrentPlayer}
+      />
       <div className="board_info_2">
-        <p id="player_two_side" className="side"></p>
-        <p id="player_two_mancala"></p>
+        <p id="player_two_side" className="side">
+          Player Two's Side
+        </p>
+        <p id="player_two_mancala">Player Two's mancala</p>
       </div>
     </div>
   );

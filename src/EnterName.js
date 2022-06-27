@@ -6,10 +6,14 @@ const EnterName = ({
   setPlayerTwo,
   setNameOfPlayersEntered,
   numOfPlayers,
+  pipArray,
+  setPipArray,
+  playerTwo,
 }) => {
   function handleClick(e) {
     e.preventDefault();
     setNameOfPlayersEntered("true");
+    setPipArray([4, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 4, 0]);
   }
   return (
     <div id="enter_name" className="player_info">
@@ -19,6 +23,7 @@ const EnterName = ({
           setPlayerOne={setPlayerOne}
           setPlayerTwo={setPlayerTwo}
           numOfPlayers={numOfPlayers}
+          playerTwo={playerTwo}
         />
         <input
           type="submit"

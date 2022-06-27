@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import EnterNumber from "./EnterNumber";
 import EnterName from "./EnterName";
 
@@ -13,6 +13,9 @@ const UserInput = ({
   setPlayerTwo,
   nameOfPlayersEntered,
   setNameOfPlayersEntered,
+  currentPlayer,
+  pipArray,
+  setPipArray,
 }) => {
   if (!numOfPlayersChosen) {
     return (
@@ -30,15 +33,17 @@ const UserInput = ({
         setPlayerTwo={setPlayerTwo}
         setNameOfPlayersEntered={setNameOfPlayersEntered}
         numOfPlayers={numOfPlayers}
+        setPipArray={setPipArray}
+        pipArray={pipArray}
+        playerTwo={playerTwo}
       />
     );
   }
 
   if (numOfPlayersChosen && nameOfPlayersEntered) {
-    console.log("turns?");
     return (
       <div id="vs" className="player_info">
-        Whose Turn?
+        {currentPlayer === 1 ? `${playerOne}'s turn` : `${playerTwo}'s turn`}
       </div>
     );
   }
